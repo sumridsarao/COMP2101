@@ -17,15 +17,42 @@
 ###############
 # Variables   #
 ###############
-title="Overlord"
-USER="Sumrid"
+#asking user their name and generating hostname
+read -p "What is your name " USER
 hostname=$(hostname)
+#setting date in HH:MM:SS format and time variable is describing day
+date=$(( date +"%I:%M:%S %p" ))
+time=$(( date + %A ))
+#mentioning conditions of weekdays and giving title according to it
+if [ $time == "Monday" ]
+then
+  title="Energetic"
+elif [ $time == "Tuesday" ]
+then
+  title="Excited"
+elif [ $time == "Wednesday" ]
+then
+  title="Joyful"
+elif [ $time == "Thursday" ]
+then
+  title=""
+elif [ $time == "Friday" ]
+then
+  title="Grateful"
+elif [ $time == "Saturday" ]
+then
+  title="Loved"
+elif [ $time == "Sunday" ]
+then
+  title="Cheerful"
 
 ###############
 # Main        #
 ###############
+#Displaying the hostname, title, user name, time and day after getting results from above.
 cat <<EOF
 
 Welcome to planet $hostname, "$title $USER!"
+It is $time at $day
 
 EOF
