@@ -21,7 +21,7 @@
 read -p "What is your name " USER
 hostname=$(hostname)
 #setting date in HH:MM:SS format and time variable is describing day
-date=$(( date +"%I:%M:%S %p" ))
+date=$(( date +%I:%M:%S %p ))
 time=$(( date + %A ))
 #mentioning conditions of weekdays and giving title according to it
 if [ $time == "Monday" ]
@@ -46,13 +46,11 @@ elif [ $time == "Sunday" ]
 then
   title="Cheerful"
 fi
+
 ###############
 # Main        #
 ###############
 #Displaying the hostname, title, user name, time and day after getting results from above.
-cat <<EOF
 
-Welcome to planet $hostname, "$title $USER!"
-It is $time at $day
-
-EOF
+cowsay "Welcome to planet $hostname, $title $USER!
+It is $time at $day"
