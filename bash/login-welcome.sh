@@ -18,11 +18,11 @@
 # Variables   #
 ###############
 #asking user their name and generating hostname
-read -p "What is your name " USER
+
 hostname=$(hostname)
 #setting date in HH:MM:SS format and time variable is describing day
-date=$(( date +%I:%M:%S %p ))
-time=$(( date + %A ))
+date=$(date "+%I:%M:%S %p")
+time=$(date +%A)
 #mentioning conditions of weekdays and giving title according to it
 if [ $time == "Monday" ]
 then
@@ -53,4 +53,4 @@ fi
 #Displaying the hostname, title, user name, time and day after getting results from above.
 
 cowsay "Welcome to planet $hostname, $title $USER!
-It is $time at $day"
+It is $time at $date"
